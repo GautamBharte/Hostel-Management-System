@@ -21,6 +21,16 @@ class Complaint(models.Model):
         ('Ragging Case', 'Ragging Case'),
         ('Fees Issue', 'Fees Issue')
     )
-    # category =
-    # title = 
+    STATUS = (
+        ('Pending', 'Pending'),
+        ('Viewed', 'Viewed'),
+        ('Completed', 'Completed')
+    )
+    student = models.ForeignKey(Student, null=True, on_delete=models.SET_NULL)
+    category = models.CharField(max_length=200, null=True, choices=CATEGORY)
+    title = models.CharField(max_length=200, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, null=True, choices=STATUS)
+
+    def __str__(self) -> str:
+        return self.student.name + '(' + self.category + ')'
