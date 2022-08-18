@@ -4,6 +4,22 @@
 
 body {
     font-family: "Lato", sans-serif;
+    background-color: #ebeff5;
+}
+
+
+
+#total-complaints{
+    background-color: #4cb4c7;
+}
+
+
+#complaints-pending{
+    background-color: #7abecc;
+}
+
+#complaints-completed{
+    background-color: #7CD1C0;
 }
 
 /* Style the tab */
@@ -48,6 +64,7 @@ body {
     width: 80%;
     border-left: none;
     height: 300px;
+    margin: 5px;
 }
 
 

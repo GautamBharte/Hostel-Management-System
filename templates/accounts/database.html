@@ -4,66 +4,74 @@
     <button class="tablinks">Filters Here</button>
 </div>
 
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-students" style="background-color: #4cb4c7;">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Students</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_students}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="fees-pending" style="background-color: #7abecc;">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Fees Pending</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{fees_pending}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="fees-paid" style="background-color: #7CD1C0;">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Fees Paid</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{fees_paid}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
 <div class="tabcontent">
     <h2>Add Student</h2>
     <div style="overflow-x:auto;">
         <table>
           <tr>
             <th>PRN</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
+            <th>Name</th>
+            <th>Email</th>
             <th>Branch</th>
-            <th>Admission taken</th>
-            <th>Room Occupancy</th>
-            <th>DOB</th>
-            <th>Room no.</th>
-            <th>Fees Status</th>
-            <th>Contact</th>
-            <th>E-mail</th>
+            <th>Room Number</th>
+            <th>Addmission Date</th>
           </tr>
-          <tr>
-            <td>00120011047</td>
-            <td>Gautam</td>
-            <td>Bharte</td>
-            <td>Male</td>
-            <td>Computer</td>
-            <td>2020-2021</td>
-            <td>boys</td>
-            <td>07/07/2002</td>
-            <td>104</td>
-            <td>Paid</td>
-            <td>91+ 9834379648</td>
-            <td>gautambharte123@gmail.com</td>
-          </tr>
-          <tr>
-            <td>00120011031</td>
-            <td>Atharva</td>
-            <td>Bhavsar</td>
-            <td>Male</td>
-            <td>Computer</td>
-            <td>2020-2021</td>
-            <td>boys</td>
-            <td>14/04/2002</td>
-            <td>110</td>
-            <td>Paid</td>
-            <td>91+ 7548375647</td>
-            <td>atharvabhavsar223@gmail.com</td>
-          </tr>
-          <tr>
-            <td>00120011047</td>
-            <td>Mayuresh</td>
-            <td>Pagare</td>
-            <td>Male</td>
-            <td>Computer</td>
-            <td>2019-2020</td>
-            <td>boys</td>
-            <td>14/10/2001</td>
-            <td>104</td>
-            <td>Paid</td>
-            <td>91+ 8044237530</td>
-            <td>mayureshpagare07@gmail.com</td>
-          </tr>
+          
+          {% for i in students %}
+            <tr>
+              <td>{{i.prn}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.branch}}</td>
+              <td>{{i.room_no}}</td>
+              <td>{{i.date_created}}</td>
+            </tr>
+          {% endfor %}
+
         </table>
       </div>
 </div>
