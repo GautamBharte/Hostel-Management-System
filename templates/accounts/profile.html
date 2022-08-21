@@ -7,9 +7,11 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                     width="150px"
                     src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <span class="font-weight-bold">Tony Potts</span>
-                <span class="text-black-50">tonypotts@gmail.com</span>
+                <span class="font-weight-bold">{{student.name}}</span>
+                <span class="text-black-50">{{student.email}}</span>
                 <span class="text-black-50-bold">(TE-COMP-A 2022-2023(SEMESTER V))</span>
+                <span class="text-black-50-bold">Fees Status: {{student.fees_status}}</span>
+                <a class="btn btn-sm btn-info" href="">Edit Profile</a>
             </div>
         </div>
         <div class="col-md-7 border-right">
@@ -20,7 +22,7 @@
                 <div class="row mt-1">
                     <div class="col-md-6"><label class="labels">
                             <p>Name: </p>
-                        </label><span class="border rounded">Tony</span></div>
+                        </label><span class="border rounded">{{student.name}}</span></div>
                     <div class="col-md-6"><label class="labels">
                             <p>Surname:</p>
                         </label><span class="border rounded">Potts</span></div>

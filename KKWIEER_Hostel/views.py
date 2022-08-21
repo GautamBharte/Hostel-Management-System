@@ -21,5 +21,9 @@ def user(request):
     
     return render(request, 'accounts/dashboard.html', context)
 
-def profile(request):
-    return render(request, 'accounts/profile.html')
+def profile(request, pk_test):
+    student = Student.objects.get(id=pk_test)
+    context = {
+        'student' : student,
+    }
+    return render(request, 'accounts/profile.html', context)

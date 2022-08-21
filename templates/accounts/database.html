@@ -61,14 +61,14 @@
             <th>Addmission Date</th>
           </tr>
           
-          {% for i in students %}
+          {% for student in students %}
             <tr>
-              <td>{{i.prn}}</td>
-              <td>{{i.name}}</td>
-              <td>{{i.email}}</td>
-              <td>{{i.branch}}</td>
-              <td>{{i.room_no}}</td>
-              <td>{{i.date_created}}</td>
+              <td><a href="{% url 'profile' student.id %}">{{student.prn}}</a></td>
+              <td>{{student.name}}</td>
+              <td>{{student.email}}</td>
+              <td>{{student.branch}}</td>
+              <td>{{student.room_no}}</td>
+              <td>{{student.date_created}}</td>
             </tr>
           {% endfor %}
 
