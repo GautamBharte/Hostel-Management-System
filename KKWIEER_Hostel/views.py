@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
+from .forms import StudentForm
 
 # Create your views here.
 def home(request):
@@ -27,3 +28,19 @@ def profile(request, pk_test):
         'student' : student,
     }
     return render(request, 'accounts/profile.html', context)
+
+def addStudent(request):
+    
+    form = StudentForm()
+    if request.method == 'POST':
+        # print('Printing POST: ', request.POST)
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/user')
+    
+    context = {
+        'form' : form
+    }
+    
+    return render(request, 'accounts/add_student.html', context)
