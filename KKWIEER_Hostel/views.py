@@ -43,4 +43,20 @@ def addStudent(request):
         'form' : form
     }
     
-    return render(request, 'accounts/add_student.html', context)
+    return render(request, 'accounts/student_form.html', context)
+
+def updateStudent(request, pk):
+    student = Student.objects.get(id=pk)
+    form = StudentForm(instance=student)
+    
+    if request.method == 'POST':
+        # print('Printing POST: ', request.POST)
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('/user')
+    
+    context = {
+        'form' : form
+    }
+    return render(request, 'accounts/student_form.html', context)

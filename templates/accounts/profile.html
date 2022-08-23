@@ -11,7 +11,7 @@
                 <span class="text-black-50">{{student.email}}</span>
                 <span class="text-black-50-bold">(TE-COMP-A 2022-2023(SEMESTER V))</span>
                 <span class="text-black-50-bold">Fees Status: {{student.fees_status}}</span>
-                <a class="btn btn-sm btn-info" href="">Edit Profile</a>
+                <a class="btn btn-sm btn-info" href="{% url 'update_student' student.id %}">Edit Profile</a>
             </div>
         </div>
         <div class="col-md-7 border-right">
