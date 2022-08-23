@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'KKWIEER_Hostel',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

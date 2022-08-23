@@ -1,7 +1,12 @@
 {% load static %}
 
 <div class="tab">
-    <button class="tablinks">Filters Here</button>
+
+    <form method="get">
+			{{myFilter.form}}
+		<button class="btn btn-primary" type="submit">Search</button>
+	</form>
+
 </div>
 
 
