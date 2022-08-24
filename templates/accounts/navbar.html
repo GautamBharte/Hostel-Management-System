@@ -10,9 +10,11 @@
 
 <div class="topnav" id="myTopnav">
     <a href="#home" class="active">K. K. Wagh Institute of Engineering Education & Research, Nashik</a>
+    {% if request.user.is_staff %}
     <a href="#about">About</a>
     <a href="#news">Gallary</a>
     <a href="#contact">Connect</a>
+    {% endif %}
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>

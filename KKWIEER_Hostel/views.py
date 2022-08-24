@@ -1,5 +1,7 @@
 from cmath import log
 import imp
+from tokenize import group
+from unicodedata import name
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -9,48 +11,50 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 
 from .models import *
 from .forms import StudentForm, CreateUserForm
 from .filters import StudentFilter
+from .decorators import *
 
 # Create your views here.
-def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('admin')
-    else: 
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
-                return redirect('login')
+@unauthenticated_user
+def registerPage(request): 
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+
+            group = Group.objects.get(name='student')
+            user.groups.add(group)
+
+            messages.success(request, 'Account was created for ' + username)
+            return redirect('login')
     
     context = {
         'form' : form,
     }
     return render(request, 'accounts/register.html', context)
 
+@unauthenticated_user
 def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('admin')
-    else: 
-        if request.method == "POST":
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            
-            user = authenticate(request, username=username, password=password)
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
 
-            if user is not None:
-                login(request, user)
-                return redirect('admin')
-            else:
-                messages.info(request, 'Username or password is incorrect')
+        if user is not None:
+            login(request, user)
+            return redirect('admin')
+        else:
+            messages.info(request, 'Username or password is incorrect')
 
-        context = {}
-        return render(request, 'accounts/login.html', context)
+    context = {}
+    return render(request, 'accounts/login.html', context)
 
 def logoutUser(request):
     logout(request)
@@ -60,7 +64,12 @@ def logoutUser(request):
 def home(request):
     return render(request, 'accounts/main.html')
 
+def studentDashboard(request):
+    context = {}
+    return render(request, 'accounts/student_dashboard.html')
+
 @login_required(login_url='login')
+@admin_only
 def user(request):
     students = Student.objects.all()
     total_students = students.count()
@@ -81,6 +90,7 @@ def user(request):
     return render(request, 'accounts/dashboard.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def profile(request, pk_test):
     student = Student.objects.get(id=pk_test)
     context = {
@@ -89,6 +99,7 @@ def profile(request, pk_test):
     return render(request, 'accounts/profile.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def addStudent(request):
     
     form = StudentForm()
@@ -106,6 +117,7 @@ def addStudent(request):
     return render(request, 'accounts/student_form.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def updateStudent(request, pk):
     student = Student.objects.get(id=pk)
     form = StudentForm(instance=student)
@@ -123,6 +135,7 @@ def updateStudent(request, pk):
     return render(request, 'accounts/student_form.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def deleteStudent(request, pk):
     student = Student.objects.get(id=pk)
     
