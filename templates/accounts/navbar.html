@@ -1,5 +1,13 @@
 {% load static %}
 
+<style>
+    .hello-msg{
+        font-size: 18px;
+        color: black;
+        margin-left: 20px;
+    }
+</style>
+
 <div class="topnav" id="myTopnav">
     <a href="#home" class="active">K. K. Wagh Institute of Engineering Education & Research, Nashik</a>
     <a href="#about">About</a>
@@ -8,4 +16,7 @@
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
+
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
 </div>

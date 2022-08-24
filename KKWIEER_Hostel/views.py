@@ -1,13 +1,66 @@
+from cmath import log
+import imp
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth import authenticate, login, logout
+
+from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
 from .models import *
-from .forms import StudentForm
+from .forms import StudentForm, CreateUserForm
 from .filters import StudentFilter
 
 # Create your views here.
+def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('admin')
+    else: 
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
+                return redirect('login')
+    
+    context = {
+        'form' : form,
+    }
+    return render(request, 'accounts/register.html', context)
+
+def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('admin')
+    else: 
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('admin')
+            else:
+                messages.info(request, 'Username or password is incorrect')
+
+        context = {}
+        return render(request, 'accounts/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+
 def home(request):
     return render(request, 'accounts/main.html')
 
+@login_required(login_url='login')
 def user(request):
     students = Student.objects.all()
     total_students = students.count()
@@ -27,6 +80,7 @@ def user(request):
     
     return render(request, 'accounts/dashboard.html', context)
 
+@login_required(login_url='login')
 def profile(request, pk_test):
     student = Student.objects.get(id=pk_test)
     context = {
@@ -34,6 +88,7 @@ def profile(request, pk_test):
     }
     return render(request, 'accounts/profile.html', context)
 
+@login_required(login_url='login')
 def addStudent(request):
     
     form = StudentForm()
@@ -50,6 +105,7 @@ def addStudent(request):
     
     return render(request, 'accounts/student_form.html', context)
 
+@login_required(login_url='login')
 def updateStudent(request, pk):
     student = Student.objects.get(id=pk)
     form = StudentForm(instance=student)
@@ -66,6 +122,7 @@ def updateStudent(request, pk):
     }
     return render(request, 'accounts/student_form.html', context)
 
+@login_required(login_url='login')
 def deleteStudent(request, pk):
     student = Student.objects.get(id=pk)
     
