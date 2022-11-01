@@ -1,5 +1,6 @@
 from cmath import log
 import imp
+import re
 from tokenize import group
 from unicodedata import name
 from django.shortcuts import render, redirect
@@ -64,9 +65,15 @@ def logoutUser(request):
 def home(request):
     return render(request, 'accounts/main.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['student'])
 def studentDashboard(request):
-    context = {}
-    return render(request, 'accounts/student_dashboard.html')
+    student = request.user.student
+    print("STUDENT : ", student)
+    context = {
+        'student' : student
+    }
+    return render(request, 'accounts/student_dashboard.html', context)
 
 @login_required(login_url='login')
 @admin_only
@@ -76,6 +83,7 @@ def user(request):
     fees_pending = students.filter(fees_status='Pending').count()
     fees_paid = students.filter(fees_status='Paid').count()
     
+    print(request.GET)
     myFilter = StudentFilter(request.GET, queryset=students)
     students = myFilter.qs
     

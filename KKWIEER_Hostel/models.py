@@ -1,5 +1,6 @@
 from sre_constants import CATEGORY
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Student(models.Model):
         ('Pending', 'Pending'),
         ('Paid', 'Paid')
     )
-    
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     prn = models.CharField(max_length=12, null=True)
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)

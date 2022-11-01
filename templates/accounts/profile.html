@@ -11,8 +11,10 @@
                 <span class="text-black-50">{{student.email}}</span>
                 <span class="text-black-50-bold">(TE-COMP-A 2022-2023(SEMESTER V))</span>
                 <span class="text-black-50-bold">Fees Status: {{student.fees_status}}</span>
+                {% if request.user.is_staff %}
                 <a class="btn btn-sm btn-info" href="{% url 'update_student' student.id %}">Edit Profile</a>
                 <a class="btn btn-sm btn-danger" href="{% url 'delete_student' student.id %}">Delete Profile</a>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-7 border-right">
