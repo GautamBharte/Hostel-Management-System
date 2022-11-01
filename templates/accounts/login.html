@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
-    
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+     
 <head>
 	<title>Login</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -13,14 +14,14 @@
 		html {
 			margin: 0;
 			padding: 0;
-			height: 100%;
-			background: #7abecc !important;
+			height: 85%;
+			background: #ffffff !important;
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #ececec;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -38,7 +39,7 @@
 		}
 
 		#form-title{
-			color: #fff;
+			color: rgb(0, 0, 0);
 			
 		}
 
@@ -122,4 +123,4 @@
 	</div>
 </body>
 
-</html>
+{% endblock %}

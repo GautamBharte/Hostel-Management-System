@@ -9,16 +9,21 @@
 </style>
 
 <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">K. K. Wagh Institute of Engineering Education & Research, Nashik</a>
-    {% if request.user.is_staff %}
+    <a href="{% url 'name' %}" class="active">K. K. Wagh Institute of Engineering Education & Research, Nashik</a>
+    {% if not request.user.is_authenticated %}
     <a href="#about">About</a>
     <a href="#news">Gallary</a>
     <a href="#contact">Connect</a>
+    {% endif %}
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'login' %}">Login</a>
     {% endif %}
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
 
+    {% if request.user.is_authenticated %}
     <span class="hello-msg">Hello, {{request.user}}</span>
     <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+    {% endif %}
 </div>
