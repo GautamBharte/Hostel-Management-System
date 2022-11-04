@@ -9,9 +9,22 @@ class Student(models.Model):
         ('Pending', 'Pending'),
         ('Paid', 'Paid')
     )
+    ADDMINSSION_FOR = (
+        ('Male', 'Male'),
+        ('Female', 'Female')
+    )
+    ADDMISSION_TAKEN = (
+        ('Engineering', 'Engineering'),
+        ('Polytechniques', 'Polytechniques'),
+        ('B.Phermacy', 'B.Phermacy')
+    )
+    
+    
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     prn = models.CharField(max_length=12, null=True)
     profile_pic = models.ImageField(null=True, blank=True, default='default.jpg')
+    
+    
     
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
