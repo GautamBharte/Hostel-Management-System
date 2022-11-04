@@ -11,4 +11,4 @@ class StudentFilter(django_filters.FilterSet):
     class Meta:
         model = Student
         fields = '__all__'
-        exclude = ['email', 'date_created']
+        exclude = ['email', 'date_created', 'profile_pic']

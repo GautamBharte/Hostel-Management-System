@@ -9,8 +9,10 @@ class Student(models.Model):
         ('Pending', 'Pending'),
         ('Paid', 'Paid')
     )
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     prn = models.CharField(max_length=12, null=True)
+    profile_pic = models.ImageField(null=True, blank=True, default='default.jpg')
+    
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
     branch = models.CharField(max_length=50, null=True)

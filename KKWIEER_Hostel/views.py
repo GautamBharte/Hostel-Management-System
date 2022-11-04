@@ -1,13 +1,9 @@
-from cmath import log
-import imp
-import re
-from tokenize import group
-from unicodedata import name
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 from django.contrib import messages
 
@@ -20,7 +16,8 @@ from .filters import StudentFilter
 from .decorators import *
 
 # Create your views here.
-@unauthenticated_user
+@login_required(login_url='login')
+@admin_only
 def registerPage(request): 
     form = CreateUserForm()
     if request.method == 'POST':
@@ -113,10 +110,13 @@ def addStudent(request):
     form = StudentForm()
     if request.method == 'POST':
         # print('Printing POST: ', request.POST)
-        form = StudentForm(request.POST)
+        form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            # user = User.objects.create_user(StudentForm, StudentForm.email, StudentForm)
+            # user.save()
             return redirect('/user')
+        
     
     context = {
         'form' : form

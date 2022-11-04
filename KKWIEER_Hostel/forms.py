@@ -11,6 +11,7 @@ class StudentForm(ModelForm):
     class Meta:
         model = Student
         fields = '__all__'
+        exclude = ['user']
         
 class CreateUserForm(UserCreationForm):
     class Meta:
