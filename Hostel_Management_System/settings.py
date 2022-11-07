@@ -76,12 +76,41 @@ WSGI_APPLICATION = 'Hostel_Management_System.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# steps for migrations
+# Save Data to Json
+# python manage.py dumpdata > datadump.json
+# Sync New Data
+# python manage.py migrate --run-syncdb
+# Exclede content data
+# python manage.py shell
+
+# from django.contrib.contenttypes.models import ContentType
+# ContentType.objects.all().delete()
+# quit()
+
+# Move data
+# python manage.py loaddata datadump.json
+ 
+DATABASE = 1;
+
+if DEBUG and (DATABASE == 1):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+if DEBUG and (DATABASE == 2):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'hosteldemo',
+            'USER': 'postgres',
+            'PASSWORD': 'Gautam@0142',
+            'HOST': 'localhost',
+            'POST': '5432'
+        }
+    }
 
 
 # Password validation

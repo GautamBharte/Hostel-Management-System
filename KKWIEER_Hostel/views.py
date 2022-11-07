@@ -60,7 +60,7 @@ def logoutUser(request):
 
 
 def home(request):
-    return render(request, 'accounts/main.html')
+    return render(request, 'accounts/homepage.html')
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['student'])
