@@ -1,225 +1,293 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hostels | K.K.W.I.E.E.R.</title>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Hostels | K.K.W.I.E.E.R.</title>
-</head>
-
-<body class="text-gray-800 antialiased">
-  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3">
-    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-          href="https://engg.kkwagh.edu.in/">K. K. W. I. E. E. R., Nashik</a>
+  <body class="text-gray-800 antialiased">
+    <nav
+      class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3"
+    >
+      <div
+        class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+      >
+        <div
+          class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+        >
+          <a
+            class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+            href="https://engg.kkwagh.edu.in/"
+            >K. K. W. I. E. E. R., Nashik</a
+          >
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main>
-    <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh">
-      <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
+    <main>
+      <div
+        class="relative pt-16 pb-32 flex content-center items-center justify-center"
+        style="min-height: 75vh"
+      >
+        <div
+          class="absolute top-0 w-full h-full bg-center bg-cover"
+          style="
             background-image: url('https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/4082/2021/8/5/Campus%20View%20of%20KK%20Wagh%20Institute%20of%20Engineering%20Education%20and%20Research%20Nashik_Campus-View.jpg');
-          ">
-        <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
-      </div>
-      <div class="container relative mx-auto">
-        <div class="items-center flex flex-wrap">
-          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-            <div class="pr-12">
-              <h1 class="text-white font-bold text-5xl">
-                K. K. Wagh Institute of Engineering Education and Research,
-                Nashik
-              </h1>
-              <p class="mt-10 text-lg text-gray-300 font-semibold text-4xl">
-                Karmaveer Boys' Hostel
-              </p>
-              <p class="mt-4 text-lg text-gray-300 font-semibold text-4xl">
-                Geetai Girls' Hostel
-              </p>
+          "
+        >
+          <span
+            id="blackOverlay"
+            class="w-full h-full absolute opacity-50 bg-black"
+          ></span>
+        </div>
+        <div class="container relative mx-auto">
+          <div class="items-center flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div class="pr-12">
+                <h1 class="text-white font-bold text-5xl">
+                  K. K. Wagh Institute of Engineering Education and Research,
+                  Nashik
+                </h1>
+                <p class="mt-10 text-lg text-gray-300 font-semibold text-4xl">
+                  Karmaveer Boys' Hostel
+                </p>
+                <p class="mt-4 text-lg text-gray-300 font-semibold text-4xl">
+                  Geetai Girls' Hostel
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <section class="py-2">
-      <div class="container flex flex-wrap justify-center mx-auto">
-        <a class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold" href="{% url 'login' %}">
-          Login
-        </a>
-        <a class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold" href="#news">
-          News
-        </a>
-        <a class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold" href="#hostel">
-          Hostels
-        </a>
-        <!-- <a
+      <section class="py-2">
+        <div class="container flex flex-wrap justify-center mx-auto">
+          <a
+            class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
+            href="{% url 'login' %}"
+          >
+            Login
+          </a>
+          <a
+            class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
+            href="#news"
+          >
+            News
+          </a>
+          <a
+            class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
+            href="#hostel"
+          >
+            Hostels
+          </a>
+          <!-- <a
             class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
             href="#events"
           >
             Events
           </a> -->
-        <a class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
-          href="#contact">Contact</a>
-      </div>
-    </section>
-
-    <section class="relative bg-blue py-2">
-      <div id="news" class="md:p-12 text-center pb-6">
-        <h3 class="text-3xl font-semibold">News</h3>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News0</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News1</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News2</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News3</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News4</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News5</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News6</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News7</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News8</p>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">News9</p>
-      </div>
-    </section>
-    <section class="relative py-2">
-      <div id="hostel" class="container flex flex-auto justify-start justify-items-stretch mx-auto px-4 py-10">
-        <div class="m-8 w-full h-full">
-          <img class="object-cover shadow-lg rounded-lg" src="http://engg.kkwagh.edu.in/media/post_image/hostel1.png"
-            alt="boyshostel" />
+          <a
+            class="bg-cyan-100 hover:bg-cyan-200 m-8 p-8 rounded shadow text-lg font-semibold"
+            href="#contact"
+            >Contact</a
+          >
         </div>
-        <div class="m-8">
-          <h3 class="text-3xl font-semibold p-8">Karmaveer Boys' Hostel</h3>
-          <p class="p-8">
-            This hostel provides shelter to the boys of the college who are
-            admitted to the K.K.Wagh Institutes for their studies. Every room
-            of this three-storeyed hostel is equipped with two tables, two
-            chairs, two beds and one cupboard which holds quite adequete for
-            all the belongings of the students. The toilets and bathrooms are
-            well maintainf along with the 24/7 supply of electricity and
-            water. The hostel is surrounded with greenery which ensures good
-            ventilation to the rooms.
+      </section>
+
+      <section class="relative bg-blue py-2">
+        <div id="news" class="md:p-12 text-center pb-6">
+          <h3 class="text-3xl font-semibold">News</h3>
+          <p class="mt-4 text-lg leading-relaxed text-gray-600">
+            The admission forms for academic year have been released
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-gray-600">
+            No events regarding to Diwali Celebration are permitted
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-gray-600">
+            Hostel Students may update their personal deatils if they want to
           </p>
         </div>
-      </div>
+      </section>
+      <section class="relative py-2">
+        <div
+          id="hostel"
+          class="container flex flex-auto justify-start justify-items-stretch mx-auto px-4 py-10"
+        >
+          <div class="m-8 w-full h-full">
+            <img
+              class="object-cover shadow-lg rounded-lg"
+              src="http://engg.kkwagh.edu.in/media/post_image/hostel1.png"
+              alt="boyshostel"
+            />
+          </div>
+          <div class="m-8">
+            <h3 class="text-3xl font-semibold p-8">Karmaveer Boys' Hostel</h3>
+            <p class="p-8">
+              This hostel provides shelter to the boys of the college who are
+              admitted to the K.K.Wagh Institutes for their studies. Every room
+              of this three-storeyed hostel is equipped with two tables, two
+              chairs, two beds and one cupboard which holds quite adequete for
+              all the belongings of the students. The toilets and bathrooms are
+              well maintainf along with the 24/7 supply of electricity and
+              water. The hostel is surrounded with greenery which ensures good
+              ventilation to the rooms.
+            </p>
+          </div>
+        </div>
 
-      <div class="container flex flex-auto justify-start justify-items-stretch mx-auto px-4 pt-4 pb-20">
-        <div class="m-8">
-          <h3 class="text-3xl font-semibold p-8">Geetai Girls' Hostel</h3>
-          <p class="p-8">
-            This hostel provides shelter to the girls of the college who are
-            admitted to the K.K.Wagh Institutes for their studies. Every room
-            of this three-storeyed hostel is equipped with two tables, two
-            chairs, two beds and one cupboard which holds quite adequete for
-            all the belongings of the students. The toilets and bathrooms are
-            well maintainf along with the 24/7 supply of electricity and
-            water.The hostel is surrounded with greenery which ensures good
-            ventilation to the rooms.
-          </p>
+        <div
+          class="container flex flex-auto justify-start justify-items-stretch mx-auto px-4 pt-4 pb-20"
+        >
+          <div class="m-8">
+            <h3 class="text-3xl font-semibold p-8">Geetai Girls' Hostel</h3>
+            <p class="p-8">
+              This hostel provides shelter to the girls of the college who are
+              admitted to the K.K.Wagh Institutes for their studies. Every room
+              of this three-storeyed hostel is equipped with two tables, two
+              chairs, two beds and one cupboard which holds quite adequete for
+              all the belongings of the students. The toilets and bathrooms are
+              well maintainf along with the 24/7 supply of electricity and
+              water.The hostel is surrounded with greenery which ensures good
+              ventilation to the rooms.
+            </p>
+          </div>
+          <div class="m-8 w-full h-full">
+            <img
+              class="shadow-lg rounded-lg"
+              src="http://engg.kkwagh.edu.in/media/post_image/hostel2.png"
+              alt="boyshostel"
+            />
+          </div>
         </div>
-        <div class="m-8 w-full h-full">
-          <img class="shadow-lg rounded-lg" src="http://engg.kkwagh.edu.in/media/post_image/hostel2.png"
-            alt="boyshostel" />
-        </div>
-      </div>
-    </section>
-    <!-- 
+      </section>
+      <!-- 
       <section>
         <div id="events" class="md:p-12 text-center pb-6">
           <h3 class="text-3xl font-semibold">Events</h3>
         </div>
       </section> -->
 
-    <section class="pb-20 relative block bg-gray-900">
-      <div id="contact" class="container mx-auto px-4 lg:pt-24 lg:pb-64">
-        <div class="flex flex-wrap text-center justify-center">
-          <div class="w-full lg:w-6/12 px-4">
-            <h2 class="text-4xl font-semibold text-white">
-              Contact the Hostel
-            </h2>
-            <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-              If you have any query, suggestions or requests please feel free
-              to contact the hostel. <br />
-              We will make sure to answer at the earliest.
-            </p>
+      <section class="pb-20 relative block bg-gray-900">
+        <div id="contact" class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+          <div class="flex flex-wrap text-center justify-center">
+            <div class="w-full lg:w-6/12 px-4">
+              <h2 class="text-4xl font-semibold text-white">
+                Contact the Hostel
+              </h2>
+              <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
+                If you have any query, suggestions or requests please feel free
+                to contact the hostel. <br />
+                We will make sure to answer at the earliest.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="relative block py-24 lg:pt-0 bg-gray-900">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-              <div class="flex-auto p-5 lg:p-10">
-                <div class="relative w-full mb-3 mt-3">
-                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="prn">PRN NO.</label><input
-                    type="text"
-                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                    placeholder="PRN No." style="transition: all 0.15s ease 0s" />
-                </div>
-                <div class="relative w-full mb-3 mt-3">
-                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="full-name">Full
-                    Name</label><input type="text"
-                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                    placeholder="Full Name" style="transition: all 0.15s ease 0s" />
-                </div>
-                <div class="relative w-full mb-3">
-                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">Email</label><input
-                    type="email"
-                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                    placeholder="Email" style="transition: all 0.15s ease 0s" />
-                </div>
-                <div class="relative w-full mb-3">
-                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    for="message">Message</label><textarea rows="4" cols="80"
-                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                    placeholder="Type a message..."></textarea>
-                </div>
-                <div class="text-center mt-6">
-                  <button
-                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                    type="button" style="transition: all 0.15s ease 0s">
-                    Send
-                  </button>
+      <section class="relative block py-24 lg:pt-0 bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+            <div class="w-full lg:w-6/12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300"
+              >
+                <div class="flex-auto p-5 lg:p-10">
+                  <div class="relative w-full mb-3 mt-3">
+                    <label
+                      class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                      for="prn"
+                      >PRN NO.</label
+                    ><input
+                      type="text"
+                      class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      placeholder="PRN No."
+                      style="transition: all 0.15s ease 0s"
+                    />
+                  </div>
+                  <div class="relative w-full mb-3 mt-3">
+                    <label
+                      class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                      for="full-name"
+                      >Full Name</label
+                    ><input
+                      type="text"
+                      class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      placeholder="Full Name"
+                      style="transition: all 0.15s ease 0s"
+                    />
+                  </div>
+                  <div class="relative w-full mb-3">
+                    <label
+                      class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                      for="email"
+                      >Email</label
+                    ><input
+                      type="email"
+                      class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      placeholder="Email"
+                      style="transition: all 0.15s ease 0s"
+                    />
+                  </div>
+                  <div class="relative w-full mb-3">
+                    <label
+                      class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                      for="message"
+                      >Message</label
+                    ><textarea
+                      rows="4"
+                      cols="80"
+                      class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                      placeholder="Type a message..."
+                    ></textarea>
+                  </div>
+                  <div class="text-center mt-6">
+                    <button
+                      class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                      type="button"
+                      style="transition: all 0.15s ease 0s"
+                    >
+                      Send
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <footer class="relative bg-gray-300 pt-8 pb-6">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center md:justify-between justify-center">
-        <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-          <div class="text-sm text-gray-600 font-semibold py-1">
-            2022 © K. K. Wagh Institute of Engineering Education & Research,
-            Nashik.
+      </section>
+    </main>
+    <footer class="relative bg-gray-300 pt-8 pb-6">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-wrap items-center md:justify-between justify-center"
+        >
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div class="text-sm text-gray-600 font-semibold py-1">
+              2022 © K. K. Wagh Institute of Engineering Education & Research,
+              Nashik.
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
-<script>
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
+    </footer>
+  </body>
+  <script>
+    function toggleNavbar(collapseID) {
+      document.getElementById(collapseID).classList.toggle("hidden");
+      document.getElementById(collapseID).classList.toggle("block");
+    }
 
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
       });
     });
-  });
-</script>
-
+  </script>
 </html>

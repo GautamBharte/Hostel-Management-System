@@ -1,216 +1,275 @@
-{% extends 'accounts/main.html' %}
-
-{% block content %}
+{% extends 'accounts/main.html' %} {% block content %}
 <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                
-                <img class="rounded-circle mt-5" width="150px" src="{{student.profile_pic.url}}">
-                <span class="font-weight-bold">{{student.name}}</span>
-                <span class="text-black-50">{{student.email}}</span>
-                <span class="text-black-50-bold">(TE-COMP-A 2022-2023(SEMESTER V))</span>
-                <span class="text-black-50-bold">Fees Status: {{student.fees_status}}</span>
-                {% if request.user.is_staff %}
-                <a class="btn btn-sm btn-info" href="{% url 'update_student' student.id %}">Edit Profile</a>
-                <a class="btn btn-sm btn-danger" href="{% url 'delete_student' student.id %}">Delete Profile</a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-7 border-right">
-            <div class="p-3 py-6">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Student Profile</h4>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-6"><label class="labels">
-                            <p>Name: </p>
-                        </label><span class="border rounded">{{student.name}}</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Surname:</p>
-                        </label><span class="border rounded">Potts</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Parmanent Address:</p>
-                        </label><span class="border rounded">Start Tower, Adgaon, Nashik - 422003</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Year:</p>
-                        </label><span class="border rounded">2022-23</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Room Occupancy:</p>
-                        </label><span class="border rounded">Boy</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Addmission Category:</p>
-                        </label><span class="border rounded">Cap/IL</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Addmission Taken: </p>
-                        </label><span class="border rounded">Engg./Poly./B.Phar</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Branch: </p>
-                        </label><span class="border rounded">Computer</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Addmission Shift: </p>
-                        </label><span class="border rounded">?</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Addmission Date: </p>
-                        </label><span class="border rounded">23/07/2022</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Marks Obtained(SGPA): </p>
-                        </label><span class="border rounded">9.8</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Gender: </p>
-                        </label><span class="border rounded">Male</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Blood Group: </p>
-                        </label><span class="border rounded">O+</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>DOB: </p>
-                        </label><span class="border rounded">07/02/2002</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Religion: </p>
-                        </label><span class="border rounded">Hindu</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Caste: </p>
-                        </label><span class="border rounded">Hindi</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Sub Caste: </p>
-                        </label><span class="border rounded">Kosti</span></div>
-                    <div class="col-md-6"><label class="labels">
-                            <p>Category: </p>
-                        </label><span class="border rounded">SBC</span></div>
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Contact Info</h4>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12"><label class="labels">
-                            <p>Mobile Number: </p>
-                        </label><span class="border rounded">91+ 9997854478</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Address Line 1: </p>
-                        </label><span class="border rounded">Start Tower, Sharda Circle</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Address Line 2: </p>
-                        </label><span class="border rounded">Adgaon, Nashik - 422003</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Postcode: </p>
-                        </label><span class="border rounded">422003</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>State: </p>
-                        </label><span class="border rounded">Maharashtra</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Area: </p>
-                        </label><span class="border rounded">Urban/Rular</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Email ID: </p>
-                        </label><span class="border rounded">tonypotts@gmail.com</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Education: </p>
-                        </label><span class="border rounded">
-                            (TE-COMP-A 2022-2023(SEMESTER V))</span></div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">
-                                <p>Country: </p>
-                            </label><span class="border rounded">India</span></div>
-                        <div class="col-md-6"><label class="labels">
-                                <p>State/Region: </p>
-                            </label><span class="border rounded">Maharashtra, Nashik</span></div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Specific Health Problem</h4>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12"><label class="labels">
-                            <p>Description: </p>
-                        </label><span class="border rounded">None</span></div>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Parents Details</h4>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12"><label class="labels">
-                            <p>Father Name: </p>
-                        </label><span class="border rounded">Howard Potts</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Phone: </p>
-                        </label><span class="border rounded">91+ 26554758</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Mobile: </p>
-                        </label><span class="border rounded">91+ 9988855532</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Occupation: </p>
-                        </label><span class="border rounded">Business</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Email: </p>
-                        </label><span class="border rounded">howardpotts@gmail.com</span></div>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12"><label class="labels">
-                            <p>Mather Name: </p>
-                        </label><span class="border rounded">Ellen Potts</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Phone: </p>
-                        </label><span class="border rounded">91+ 26554758</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Mobile: </p>
-                        </label><span class="border rounded">91+ 9988855532</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Occupation: </p>
-                        </label><span class="border rounded">Business</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Email: </p>
-                        </label><span class="border rounded">ellenpoots@gmail.com</span></div>
-                </div>
-
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Fees</h4>
-                </div>
-                <div class="row mt-1">
-                    <div class="col-md-12"><label class="labels">
-                            <p>Hostel Fees: </p>
-                        </label><span class="border rounded">56000</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Reciept No: </p>
-                        </label><span class="border rounded">120335</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Date: </p>
-                        </label><span class="border rounded">23/07/2022</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Mess Fees: </p>
-                        </label><span class="border rounded">50000</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Reciept No: </p>
-                        </label><span class="border rounded">1244578</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Date: </p>
-                        </label><span class="border rounded">23/07/2022</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Alloted Room No: </p>
-                        </label><span class="border rounded">104</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Floor No: </p>
-                        </label><span class="border rounded">2</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Hostel Fees Dues Rs: </p>
-                        </label><span class="border rounded">20000</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Hostel Fees Dues Rs: </p>
-                        </label><span class="border rounded">5000</span></div>
-                    <div class="col-md-12"><label class="labels">
-                            <p>Student Deposit Rs: </p>
-                        </label><span class="border rounded">15000</span></div>
-                </div>
-
-
-
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Edit
-                        Profile</button></div>
-            </div>
-        </div>
-
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <span class="font-weight-bold">{{student.name}}</span>
+        <span class="text-black-50">{{student.email}}</span>
+        <span class="text-black-50-bold"
+          >(TE-COMP-A 2022-2023(SEMESTER V))</span
+        >
+        <span class="text-black-50-bold"
+          >Fees Status: {{student.fees_status}}</span
+        >
+        {% if request.user.is_staff %}
+        <a
+          class="btn btn-sm btn-info"
+          href="{% url 'update_student' student.id %}"
+          >Edit Profile</a
+        >
+        <a
+          class="btn btn-sm btn-danger"
+          href="{% url 'delete_student' student.id %}"
+          >Delete Profile</a
+        >
+        {% endif %}
+      </div>
     </div>
+    <div class="col-md-7 border-right">
+      <div class="p-3 py-6">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Student Profile</h4>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-6">
+            <label class="labels"> <p>Name:</p> </label
+            ><span class="border rounded">{{student.name}}</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Surname:</p> </label
+            ><span class="border rounded">Potts</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Parmanent Address:</p> </label
+            ><span class="border rounded"
+              >Start Tower, Adgaon, Nashik - 422003</span
+            >
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Year:</p> </label
+            ><span class="border rounded">2022-23</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Room Occupancy:</p> </label
+            ><span class="border rounded">Boy</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Addmission Category:</p> </label
+            ><span class="border rounded">Cap/IL</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Addmission Taken:</p> </label
+            ><span class="border rounded">Engg./Poly./B.Phar</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Branch:</p> </label
+            ><span class="border rounded">Computer</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Addmission Shift:</p> </label
+            ><span class="border rounded">?</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Addmission Date:</p> </label
+            ><span class="border rounded">23/07/2022</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Marks Obtained(SGPA):</p> </label
+            ><span class="border rounded">9.8</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Gender:</p> </label
+            ><span class="border rounded">Male</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Blood Group:</p> </label
+            ><span class="border rounded">O+</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>DOB:</p> </label
+            ><span class="border rounded">07/02/2002</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Religion:</p> </label
+            ><span class="border rounded">Hindu</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Caste:</p> </label
+            ><span class="border rounded">Hindi</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Sub Caste:</p> </label
+            ><span class="border rounded">Kosti</span>
+          </div>
+          <div class="col-md-6">
+            <label class="labels"> <p>Category:</p> </label
+            ><span class="border rounded">SBC</span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Contact Info</h4>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <label class="labels"> <p>Mobile Number:</p> </label
+            ><span class="border rounded">91+ 9997854478</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Address Line 1:</p> </label
+            ><span class="border rounded">Start Tower, Sharda Circle</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Address Line 2:</p> </label
+            ><span class="border rounded">Adgaon, Nashik - 422003</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Postcode:</p> </label
+            ><span class="border rounded">422003</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>State:</p> </label
+            ><span class="border rounded">Maharashtra</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Area:</p> </label
+            ><span class="border rounded">Urban/Rular</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Email ID:</p> </label
+            ><span class="border rounded">tonypotts@gmail.com</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Education:</p> </label
+            ><span class="border rounded">
+              (TE-COMP-A 2022-2023(SEMESTER V))</span
+            >
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <label class="labels"> <p>Country:</p> </label
+              ><span class="border rounded">India</span>
+            </div>
+            <div class="col-md-6">
+              <label class="labels"> <p>State/Region:</p> </label
+              ><span class="border rounded">Maharashtra, Nashik</span>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Specific Health Problem</h4>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <label class="labels"> <p>Description:</p> </label
+            ><span class="border rounded">None</span>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Parents Details</h4>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <label class="labels"> <p>Father Name:</p> </label
+            ><span class="border rounded">Howard Potts</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Phone:</p> </label
+            ><span class="border rounded">91+ 26554758</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Mobile:</p> </label
+            ><span class="border rounded">91+ 9988855532</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Occupation:</p> </label
+            ><span class="border rounded">Business</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Email:</p> </label
+            ><span class="border rounded">howardpotts@gmail.com</span>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <label class="labels"> <p>Mather Name:</p> </label
+            ><span class="border rounded">Ellen Potts</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Phone:</p> </label
+            ><span class="border rounded">91+ 26554758</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Mobile:</p> </label
+            ><span class="border rounded">91+ 9988855532</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Occupation:</p> </label
+            ><span class="border rounded">Business</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Email:</p> </label
+            ><span class="border rounded">ellenpoots@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Fees</h4>
+        </div>
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <label class="labels"> <p>Hostel Fees:</p> </label
+            ><span class="border rounded">56000</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Reciept No:</p> </label
+            ><span class="border rounded">120335</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Date:</p> </label
+            ><span class="border rounded">23/07/2022</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Mess Fees:</p> </label
+            ><span class="border rounded">50000</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Reciept No:</p> </label
+            ><span class="border rounded">1244578</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Date:</p> </label
+            ><span class="border rounded">23/07/2022</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Alloted Room No:</p> </label
+            ><span class="border rounded">104</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Floor No:</p> </label
+            ><span class="border rounded">2</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Hostel Fees Dues Rs:</p> </label
+            ><span class="border rounded">20000</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Hostel Fees Dues Rs:</p> </label
+            ><span class="border rounded">5000</span>
+          </div>
+          <div class="col-md-12">
+            <label class="labels"> <p>Student Deposit Rs:</p> </label
+            ><span class="border rounded">15000</span>
+          </div>
+        </div>
+
+        <div class="mt-5 text-center">
+          <button class="btn btn-primary profile-button" type="button">
+            Edit Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
